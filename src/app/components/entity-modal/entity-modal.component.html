@@ -1,0 +1,23 @@
+<div class="formgrid grid">
+    <div class="field col-12 md:col-12 c-margin">
+        <p-floatLabel>
+        <input pInputText id="username" class="w-full" [(ngModel)]="entity.entityName" />
+        <label for="username">Entity name</label>
+        </p-floatLabel>
+    </div>
+    <div class="field col-12 md:col-12 c-margin">
+        <p-floatLabel>
+        <input pInputText id="username" class="w-full" [(ngModel)]="entity.tableName" />
+        <label for="username">Table name</label>
+        </p-floatLabel>
+    </div>
+    <div class="field col-12 md:col-12 c-margin">
+        <p-floatLabel>
+            <input pInputText id="username" class="w-full" [(ngModel)]="entity.classExtends" />
+            <label for="username">Class extends</label>
+        </p-floatLabel>
+    </div>
+</div>
+<div class="buttons">
+    <p-button (onClick)="onSave()" label="Adicionar" />
+</div>

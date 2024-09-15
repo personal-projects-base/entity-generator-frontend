@@ -11,4 +11,9 @@ html{
 :root {
     --primary-color: #333;
     --content-bg-color: #f4f4f4;
-  }
+}
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}

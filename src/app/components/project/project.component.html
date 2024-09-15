@@ -25,8 +25,11 @@
               </p-floatLabel>
             </div>
           </div>
-          <h4>Entidades</h4>
-          <app-entity fo></app-entity>
+          <div class="title-entities">
+            <h3>Entidades</h3>
+            <p-button (onClick)="onShowModal()" label="Adicionar" />
+          </div>
+          <app-entity [entities]="form.entities"></app-entity>
           <h4>Endpoints</h4>
         </div>
     </p-tabPanel>

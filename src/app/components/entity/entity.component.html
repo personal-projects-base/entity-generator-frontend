@@ -1,5 +1,5 @@
 <p-accordion>
-    <p-accordionTab header="Header I">
+    <p-accordionTab  [header]="entity.entityName" *ngFor="let entity of entities">
         <p>
             Lorem ipsum dolor sit amet...
         </p>
