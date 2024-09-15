@@ -1,20 +1,82 @@
-<div class="formgrid grid">
-    <div class="field col-12 md:col-12 c-margin">
+<div style="margin-top: 20px;" class="formgrid grid c-margin">
+    <div class="field col-12 md:col-6 c-margin">
         <p-floatLabel>
-        <input pInputText id="username" class="w-full" [(ngModel)]="entity.entityName" />
-        <label for="username">Entity name</label>
+        <input pInputText id="username" class="w-full" [(ngModel)]="entityFields.comment" />
+        <label for="username">Comment</label>
+        </p-floatLabel>
+    </div>
+    <div class="field col-12 md:col-6 c-margin">
+        <p-floatLabel>
+        <input pInputText id="username" class="w-full" [(ngModel)]="entityFields.fieldName" />
+        <label for="username">Field name</label>
         </p-floatLabel>
     </div>
     <div class="field col-12 md:col-12 c-margin">
+        <p-checkbox 
+        [(ngModel)]="entityFields.list" 
+        [binary]="true" 
+        inputId="binary" />
+        <label style="margin-left: 5px;" for="binary">Is list</label>
+    </div>
+    <div class="field col-12 md:col-12 c-margin">
+        <hr>
+    </div>
+    <div class="field col-12 md:col-12">
+        <h3>Properties</h3>
+    </div>
+    <div class="field col-12 md:col-6">
         <p-floatLabel>
-        <input pInputText id="username" class="w-full" [(ngModel)]="entity.tableName" />
-        <label for="username">Table name</label>
+        <input pInputText id="username" class="w-full" [(ngModel)]="entityFields.fieldProperties.fieldType" />
+        <label for="username">Type</label>
+        </p-floatLabel>
+    </div>
+    <div class="field col-12 md:col-6">
+        <p-floatLabel>
+        <input pInputText id="username" class="w-full" [(ngModel)]="entityFields.fieldProperties.valueDefault" />
+        <label for="username">Default value</label>
         </p-floatLabel>
     </div>
     <div class="field col-12 md:col-12 c-margin">
+        <p-checkbox 
+        [(ngModel)]="entityFields.fieldProperties.required" 
+        [binary]="true" 
+        inputId="required" />
+        <label style="margin-left: 5px;" for="required">Required</label>
+    </div>
+    <div class="field col-12 md:col-12 c-margin">
+        <hr>
+    </div>
+    <div class="field col-12 md:col-12">
+        <h3>Metadata</h3>
+    </div>
+    <div class="field col-12 md:col-6 c-margin">
+        <p-checkbox 
+        [(ngModel)]="entityFields.metadata.key" 
+        [binary]="true" 
+        inputId="key" />
+        <label style="margin-left: 5px;" for="key">Primary Key</label>
+    </div>
+    <div class="field col-12 md:col-6 c-margin">
+        <p-checkbox 
+        [(ngModel)]="entityFields.metadata.nullable" 
+        [binary]="true" 
+        inputId="nullable" />
+        <label style="margin-left: 5px;" for="nullable">Accept Null</label>
+    </div>
+    <div class="field col-12 md:col-12 c-margin">
+        <hr>
+    </div>
+    <div class="field col-12 md:col-12">
+        <h3>Relationship</h3>
+    </div>
+    <div class="field col-12 md:col-3 c-margin">
         <p-floatLabel>
-            <input pInputText id="username" class="w-full" [(ngModel)]="entity.classExtends" />
-            <label for="username">Class extends</label>
+            <p-dropdown 
+            [(ngModel)]="entityFields.relationShips.fetchType"
+            [options]="fetchType"
+            optionLabel="name"
+            class="w-full" />
+            <label for="username">FetchType</label>
         </p-floatLabel>
     </div>
 </div>

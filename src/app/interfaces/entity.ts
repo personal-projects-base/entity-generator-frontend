@@ -12,14 +12,15 @@ export class EntityGenerator {
     tableName: string  = ""
     entityFields: EntityField[] = []
     classExtends?: string  = ""
+    generateDefaultHandlers: boolean = false
   }
   
   export class EntityField {
     comment: string  = ""
     fieldName: string  = ""
     fieldProperties: FieldProperties = new FieldProperties()
-    metadata?: Metadata = new Metadata()
-    relationShips?: RelationShips = new RelationShips()
+    metadata: Metadata = new Metadata()
+    relationShips: RelationShips = new RelationShips()
     list?: boolean
   }
   

@@ -1,7 +1,37 @@
 <p-accordion>
     <p-accordionTab  [header]="entity.entityName" *ngFor="let entity of entities">
-        <p>
-            Lorem ipsum dolor sit amet...
-        </p>
+        <div class="formgrid grid">
+            <div class="field col-12 md:col-4 c-margin">
+                <p-floatLabel>
+                <input pInputText id="username" class="w-full" [(ngModel)]="entity.entityName" />
+                <label for="username">Entity name</label>
+                </p-floatLabel>
+            </div>
+            <div class="field col-12 md:col-4 c-margin">
+                <p-floatLabel>
+                <input pInputText id="username" class="w-full" [(ngModel)]="entity.tableName" />
+                <label for="username">Table name</label>
+                </p-floatLabel>
+            </div>
+            <div class="field col-12 md:col-4 c-margin">
+                <p-floatLabel>
+                    <input pInputText id="username" class="w-full" [(ngModel)]="entity.classExtends" />
+                    <label for="username">Class extends</label>
+                </p-floatLabel>
+            </div>
+        </div>
+        <div>
+            <p-checkbox 
+                [(ngModel)]="entity.generateDefaultHandlers" 
+                [binary]="true" 
+                inputId="binary" />
+                <label style="margin-left: 5px;" for="binary">Generate Crud Default</label>
+        </div>
+        <div class="c-margin buttons">
+            <p-button (onClick)="onAddField(entity)" label="Adicionar" />
+        </div>
+        <div class="c-margin">
+            <app-table-entity [entityFields]="entity.entityFields"></app-table-entity>
+        </div>
     </p-accordionTab>
 </p-accordion>
