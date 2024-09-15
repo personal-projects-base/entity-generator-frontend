@@ -1,0 +1,19 @@
+<p-treeTable [value]="" class="p-treetable-sm" [scrollable]="true" [tableStyle]="{'min-width':'50rem'}">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>EntityName</th>
+            <th>Class Extends</th>
+            <th>Generate DefaultHandler</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+        <tr [ttRow]="rowNode">
+            <td>
+                <p-treeTableToggler [rowNode]="rowNode" />
+                {{ rowData.name }}
+            </td>
+            <td>{{ rowData.size }}</td>
+            <td>{{ rowData.type }}</td>
+        </tr>
+    </ng-template>
+</p-treeTable>

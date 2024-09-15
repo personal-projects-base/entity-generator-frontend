@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-dark-indigo/theme.css";
+@import "primeng/resources/primeng.css";
+body{
+
+    width: 100vw;
+    margin: 0px;
+}
+html{
+    font-size: 14px;
+}
+:root {
+    --primary-color: #333;
+    --content-bg-color: #f4f4f4;
+  }

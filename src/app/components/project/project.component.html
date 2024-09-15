@@ -1,0 +1,36 @@
+<p-tabView>
+    <p-tabPanel header="Project">
+        <div class="project">
+          <div class="formgrid grid">
+            <div class="field col-12 md:col-5 c-margin">
+              <p-floatLabel>
+                <input pInputText id="username" class="w-full" [(ngModel)]="form.mainPackage" />
+                <label for="username">Package Name</label>
+              </p-floatLabel>
+            </div>
+            <div class="field col-12 md:col-4 c-margin">
+              <p-floatLabel>
+                <input pInputText id="username" class="w-full" [(ngModel)]="form.projectName" />
+                <label for="username">Project Name</label>
+              </p-floatLabel>
+            </div>
+            <div class="field col-12 md:col-3 c-margin">
+              <p-floatLabel>
+                <p-dropdown 
+                  [(ngModel)]="form.language"
+                  [options]="languages"
+                  optionLabel="name"
+                  class="w-full" />
+                <label for="username">Language</label>
+              </p-floatLabel>
+            </div>
+          </div>
+          <h4>Entidades</h4>
+          <app-entity fo></app-entity>
+          <h4>Endpoints</h4>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Json">
+        
+    </p-tabPanel>
+  </p-tabView>
