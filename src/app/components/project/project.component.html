@@ -17,7 +17,7 @@
             <div class="field col-12 md:col-3 c-margin">
               <p-floatLabel>
                 <p-dropdown 
-                  [(ngModel)]="form.language"
+                  [(ngModel)]="language"
                   [options]="languages"
                   optionLabel="name"
                   class="w-full" />
@@ -31,9 +31,12 @@
           </div>
           <app-entity [entities]="form.entities"></app-entity>
           <h4>Endpoints</h4>
+          <div class="buttons">
+            <p-button (onClick)="onGenerate()" label="Generate" />
+          </div>
         </div>
     </p-tabPanel>
     <p-tabPanel header="Json">
-        
+        <app-json-viewer [jsonText]="jsonViewer"></app-json-viewer>
     </p-tabPanel>
   </p-tabView>
