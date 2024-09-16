@@ -22,6 +22,7 @@ export class EntityGenerator {
     metadata: Metadata = new Metadata()
     relationShips: RelationShips = new RelationShips()
     list?: boolean
+    frontendProperties: FrontendProperties = new FrontendProperties()
   }
   
   export class FieldProperties {
@@ -67,3 +68,12 @@ export class EntityGenerator {
     list: boolean = false
   }
   
+export class FrontendProperties {
+  label: string = ""
+  size: number = 0
+  hidden: boolean = false
+  order: any = 0
+  guidance: string = ""
+  reference: string = ""
+  enableFieldsFilter: boolean = false
+}

@@ -22,13 +22,24 @@ export class EntityModalComponent {
 
   constructor(public ref: DynamicDialogRef){}
 
+  fetch: any;
+  relati: any;
+
   public fetchType = [
     { name: 'None', code: 'None' },
     { name: 'Eager', code: 'EAGER' },
     { name: 'Lazy', code: 'LAZY' },
   ];
 
+  public relation = [
+    { name: 'None', code: 'None' },
+    { name: 'OneToOne', code: 'OneToOne' },
+    { name: 'OneToMany', code: 'OneToMany' },
+  ];
+
   onSave() {
+    this.entityFields.relationShips.fetchType = this.fetch.code;
+    this.entityFields.relationShips.relationShip = this.fetch.relati;
     this.ref.close(this.entityFields);
   }
   

@@ -69,15 +69,82 @@
     <div class="field col-12 md:col-12">
         <h3>Relationship</h3>
     </div>
-    <div class="field col-12 md:col-3 c-margin">
+    <div class="field col-12 md:col-6 c-margin">
         <p-floatLabel>
             <p-dropdown 
-            [(ngModel)]="entityFields.relationShips.fetchType"
+            [(ngModel)]="fetch"
             [options]="fetchType"
             optionLabel="name"
             class="w-full" />
             <label for="username">FetchType</label>
         </p-floatLabel>
+    </div>
+    <div class="field col-12 md:col-6 c-margin">
+        <p-floatLabel>
+            <p-dropdown 
+            [(ngModel)]="relati"
+            [options]="relation"
+            optionLabel="name"
+            class="w-full" />
+            <label for="username">Relationship</label>
+        </p-floatLabel>
+    </div>
+    <div class="field col-12 md:col-12 c-margin">
+        <p-checkbox 
+        [(ngModel)]="entityFields.relationShips.bidirectional" 
+        [binary]="true" 
+        inputId="key" />
+        <label style="margin-left: 5px;" for="key">Bidirectional</label>
+    </div>
+    <div class="field col-12 md:col-12 c-margin">
+        <hr>
+    </div>
+    <div class="field col-12 md:col-12">
+        <h3>FrontEnd properties</h3>
+    </div>
+    <div class="field col-12 md:col-6 c-margin">
+        <p-floatLabel>
+        <input pInputText id="label" class="w-full" [(ngModel)]="entityFields.frontendProperties.label" />
+        <label for="label">Label</label>
+        </p-floatLabel>
+    </div>
+    <div class="field col-12 md:col-3 c-margin">
+        <p-floatLabel>
+        <input pInputText id="label" class="w-full" [(ngModel)]="entityFields.frontendProperties.size" />
+        <label for="label">Size</label>
+        </p-floatLabel>
+    </div>
+    <div class="field col-12 md:col-3 c-margin">
+        <p-floatLabel>
+        <input pInputText id="reference" class="w-full" [(ngModel)]="entityFields.frontendProperties.order" />
+        <label for="reference">Order</label>
+        </p-floatLabel>
+    </div>
+    <div class="field col-12 md:col-6 c-margin">
+        <p-floatLabel>
+        <input pInputText id="label" class="w-full" [(ngModel)]="entityFields.frontendProperties.guidance" />
+        <label for="label">Guidance</label>
+        </p-floatLabel>
+    </div>
+    <div class="field col-12 md:col-6 c-margin">
+        <p-floatLabel>
+        <input pInputText id="reference" class="w-full" [(ngModel)]="entityFields.frontendProperties.reference" />
+        <label for="reference">Reference</label>
+        </p-floatLabel>
+    </div>
+    <div class="field col-12 md:col-6 c-margin">
+        <p-checkbox 
+        [(ngModel)]="entityFields.frontendProperties.enableFieldsFilter" 
+        [binary]="true" 
+        inputId="key" />
+        <label style="margin-left: 5px;" for="key">Enable filter</label>
+    </div>
+    <div class="field col-12 md:col-6 c-margin">
+        <p-checkbox 
+        [(ngModel)]="entityFields.frontendProperties.hidden" 
+        [binary]="true" 
+        inputId="key" />
+        <label style="margin-left: 5px;" for="key">Hidden</label>
     </div>
 </div>
 <div class="buttons">
