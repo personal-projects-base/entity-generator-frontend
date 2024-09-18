@@ -25,22 +25,22 @@
             </div>
             <div class="field col-12 md:col-4 c-margin">
                 <p-floatLabel>
-                <input pInputText id="username" class="w-full" [(ngModel)]="endpoint.methodName" />
-                <label for="username">Endpont name</label>
+                <input pInputText id="methodName" class="w-full" [(ngModel)]="endpoint.methodName" />
+                <label for="methodName">Endpont name</label>
                 </p-floatLabel>
             </div>
             <div class="field col-12 md:col-4 c-margin">
                 <p-floatLabel>
-                    <input pInputText id="username" class="w-full" [(ngModel)]="endpoint.grouper" />
-                    <label for="username">Grouper</label>
+                    <input pInputText id="grouper" class="w-full" [(ngModel)]="endpoint.grouper" />
+                    <label for="grouper">Grouper</label>
                 </p-floatLabel>
             </div>
             <div class="field col-12 md:col-12">
                 <p-checkbox 
                     [(ngModel)]="endpoint.metadata.anonymous" 
                     [binary]="true" 
-                    inputId="binary" />
-                    <label style="margin-left: 5px;" for="binary">Anonymous</label>
+                    inputId="anonymous" />
+                    <label style="margin-left: 5px;" for="anonymous">Anonymous</label>
             </div>
             <div class="field col-12 md:col-12 c-margin">
                 <hr>

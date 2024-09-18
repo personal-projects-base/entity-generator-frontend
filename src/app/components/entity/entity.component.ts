@@ -25,6 +25,8 @@ export class EntityComponent {
 
   _entity?: Entity;
 
+  _entities: Entity[] = [];
+
 
   ref: DynamicDialogRef | undefined;
 

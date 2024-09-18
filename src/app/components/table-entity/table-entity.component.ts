@@ -19,8 +19,6 @@ export class TableEntityComponent{
   
   @Input() entityFields: EntityField[] = [];
   @Input() entity: Entity = new Entity();
-  @Output() dataEmitter: EventEmitter<{ entity: any, entityField: EntityField }> = new EventEmitter();
-
 
   ref: DynamicDialogRef | undefined;
 
