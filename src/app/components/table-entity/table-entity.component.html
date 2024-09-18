@@ -3,12 +3,43 @@
         <tr>
             <th>Comment</th>
             <th>Field Name</th>
+            <th>Type</th>
+            <th>Actions</th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-entity>
+    <ng-template pTemplate="body" let-field let-i="rowIndex">
         <tr>
-            <td>{{ entity.comment }}</td>
-            <td>{{ entity.fieldName }}</td>
+            <td>{{ field.comment }}</td>
+            <td>{{ field.fieldName }}</td>
+            <td>{{ field.fieldProperties.type }}</td>
+            <td style="width: 2rem">
+                <div class="buttons btn-table">
+                    <button 
+                    type="button" 
+                    pButton 
+                    pRipple
+                    style="margin-right: 5px;"
+                    icon="pi pi-pencil" 
+                    (click)="onEditing(field)">
+                    </button>
+                    <button
+                        type="button" 
+                        pButton 
+                        pRipple
+                        style="margin-right: 5px;"
+                        icon="pi pi-clone" 
+                        (click)="onDuplicate(entity, field)">
+                    </button>
+                    <button
+                        type="button" 
+                        pButton 
+                        pRipple 
+                        icon="pi pi-trash" 
+                        (click)="onDelete(entity, i)">
+                    </button>
+                </div>
+                
+            </td>
         </tr>
     </ng-template>
 </p-table>

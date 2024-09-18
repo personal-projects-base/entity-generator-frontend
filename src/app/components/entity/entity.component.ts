@@ -1,10 +1,11 @@
-import { Component, Input, input } from '@angular/core';
+import { AfterViewInit, Component, Input, input, OnInit } from '@angular/core';
 import { AccordionModule } from 'primeng/accordion';
 import { TableEntityComponent } from '../table-entity/table-entity.component';
 import { Entity, EntityField } from '../../interfaces/entity';
 import { SharedCommonModule } from '../../modules/shared-common/shared-common.module';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { EntityModalComponent } from '../entity-modal/entity-modal.component';
+import { StateService } from '../../services/state.service';
 
 @Component({
   selector: 'app-entity',
@@ -22,9 +23,15 @@ export class EntityComponent {
 
   @Input() entities: Entity[] = [];
 
+  _entity?: Entity;
+
+
   ref: DynamicDialogRef | undefined;
 
-  constructor(public readonly dialogService: DialogService){}
+  constructor(
+    public readonly dialogService: DialogService
+  ){}
+
 
   onAddField(entity: Entity){
     this.ref = this.dialogService.open(EntityModalComponent, 
@@ -40,4 +47,5 @@ export class EntityComponent {
         }
       });
   }
+
 }

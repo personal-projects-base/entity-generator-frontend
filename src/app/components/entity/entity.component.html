@@ -31,7 +31,10 @@
             <p-button (onClick)="onAddField(entity)" label="Adicionar" />
         </div>
         <div class="c-margin">
-            <app-table-entity [entityFields]="entity.entityFields"></app-table-entity>
+            <app-table-entity 
+                [entity]="entity" 
+                [entityFields]="entity.entityFields">
+            </app-table-entity>
         </div>
     </p-accordionTab>
 </p-accordion>
