@@ -1,0 +1,138 @@
+<p-accordion>
+    <p-accordionTab   *ngFor="let endpoint of endpoints; let i = index">
+        <ng-template pTemplate="header">
+            <div class="head">
+                {{ endpoint.methodName }}
+                <button
+                type="button" 
+                pButton 
+                pRipple 
+                icon="pi pi-trash" 
+                (click)="onRemove(endpoints, i)">
+            </button>
+            </div>
+        </ng-template>
+        <div class="formgrid grid">
+            <div class="field col-12 md:col-4 c-margin">
+                <p-floatLabel>
+                    <p-dropdown 
+                    [(ngModel)]="methodName"
+                    [options]="methodNames"
+                    optionLabel="name"
+                    class="w-full"/>
+                    <label for="username">HttpMethod</label>
+                </p-floatLabel>
+            </div>
+            <div class="field col-12 md:col-4 c-margin">
+                <p-floatLabel>
+                <input pInputText id="username" class="w-full" [(ngModel)]="endpoint.methodName" />
+                <label for="username">Endpont name</label>
+                </p-floatLabel>
+            </div>
+            <div class="field col-12 md:col-4 c-margin">
+                <p-floatLabel>
+                    <input pInputText id="username" class="w-full" [(ngModel)]="endpoint.grouper" />
+                    <label for="username">Grouper</label>
+                </p-floatLabel>
+            </div>
+            <div class="field col-12 md:col-12">
+                <p-checkbox 
+                    [(ngModel)]="endpoint.metadata.anonymous" 
+                    [binary]="true" 
+                    inputId="binary" />
+                    <label style="margin-left: 5px;" for="binary">Anonymous</label>
+            </div>
+            <div class="field col-12 md:col-12 c-margin">
+                <hr>
+            </div>
+            <div class="field col-12 md:col-12 c-margin buttons btnsp">
+                <h4>Inputs</h4>
+                <button
+                    type="button" 
+                    pButton 
+                    pRipple 
+                    icon="pi pi-plus" 
+                    (click)="onAddInput(endpoint)">
+                </button>
+            </div>
+            <div class="field col-12 md:col-12">
+                <div class="formgrid grid" *ngFor="let input of endpoint.metadata.input; let i = index">
+                    <div class="field col-12 md:col-5 c-margin" >
+                        <p-floatLabel>
+                            <input pInputText id="username" class="w-full" [(ngModel)]="input.parameterName" />
+                            <label for="username">Parameter name</label>
+                        </p-floatLabel>
+                    </div>
+                    <div class="field col-12 md:col-5 c-margin" >
+                        <p-floatLabel>
+                            <input pInputText id="username" class="w-full" [(ngModel)]="input.parameterType" />
+                            <label for="username">Parameter type</label>
+                        </p-floatLabel>
+                    </div>
+                    <div class="field col-12 md:col-2 c-margin" >
+                        <button
+                            type="button" 
+                            pButton 
+                            pRipple 
+                            label="Remove"
+                            (click)="onRemoveParameter(endpoint.metadata.input, i)">
+                        </button>
+                    </div>
+                    <div class="field col-12 md:col-4 c-margin" >
+                        <p-checkbox 
+                            [(ngModel)]="input.list" 
+                            [binary]="true" 
+                            inputId="key" />
+                        <label style="margin-left: 5px;" for="key">is list</label>
+                    </div> 
+                </div>
+            </div>
+            <div class="field col-12 md:col-12 c-margin">
+                <hr>
+            </div>
+            <div class="field col-12 md:col-12 c-margin buttons btnsp">
+                <h4>Outputs</h4>
+                <button
+                    type="button" 
+                    pButton 
+                    pRipple 
+                    icon="pi pi-plus" 
+                    (click)="onAddOutput(endpoint)">
+                </button>
+            </div>
+            <div class="field col-12 md:col-12">
+                <div class="formgrid grid" *ngFor="let output of endpoint.metadata.output; let i = index">
+                    <div class="field col-12 md:col-5 c-margin" >
+                        <p-floatLabel>
+                            <input pInputText id="username" class="w-full" [(ngModel)]="output.parameterName" />
+                            <label for="username">Parameter name</label>
+                        </p-floatLabel>
+                    </div>
+                    <div class="field col-12 md:col-5 c-margin" >
+                        <p-floatLabel>
+                            <input pInputText id="username" class="w-full" [(ngModel)]="output.parameterType" />
+                            <label for="username">Parameter type</label>
+                        </p-floatLabel>
+                    </div>
+                    <div class="field col-12 md:col-2 c-margin" >
+                        <button
+                            type="button" 
+                            pButton 
+                            pRipple 
+                            label="Remove"
+                            (click)="onRemoveParameter(endpoint.metadata.output, i)">
+                        </button>
+                    </div>
+                    <div class="field col-12 md:col-4 c-margin" >
+                        <p-checkbox 
+                            [(ngModel)]="output.list" 
+                            [binary]="true" 
+                            inputId="key" />
+                        <label style="margin-left: 5px;" for="key">is list</label>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+    </p-accordionTab>
+</p-accordion>

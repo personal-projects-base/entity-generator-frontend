@@ -43,11 +43,10 @@ export class EntityGenerator {
   }
   
   export class Endpoint {
-    methodName: string  = ""
+    methodName: string  = " EndPointName"
     httpMethod: string  = ""
     grouper: string  = ""
     metadata: Metadata2 = new Metadata2()
-    anonymous: boolean = false
   }
   
   export class Metadata2 {
