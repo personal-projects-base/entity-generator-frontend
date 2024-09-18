@@ -43,7 +43,8 @@
             <p-button (onClick)="onAddField(entity)" label="Adicionar" />
         </div>
         <div class="c-margin">
-            <app-table-entity 
+            <app-table-entity
+                (dataEmitter)="onEditings($event)"
                 [entity]="entity" 
                 [entityFields]="entity.entityFields">
             </app-table-entity>

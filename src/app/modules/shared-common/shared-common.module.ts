@@ -7,6 +7,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DropdownModule } from 'primeng/dropdown';
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
@@ -15,13 +16,15 @@ import { DropdownModule } from 'primeng/dropdown';
     CommonModule,
   ],
   exports: [
-    NgFor,
+    CommonModule,
     FormsModule,
     FloatLabelModule,
     ButtonModule,
     InputTextModule,
     DynamicDialogModule,
     CheckboxModule,
+    DropdownModule,
+    TableModule,
     DropdownModule
   ]
 })

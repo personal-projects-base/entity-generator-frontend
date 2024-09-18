@@ -1,11 +1,10 @@
-import { AfterViewInit, Component, Input, input, OnInit } from '@angular/core';
+import {  ChangeDetectionStrategy, ChangeDetectorRef, Component, Input} from '@angular/core';
 import { AccordionModule } from 'primeng/accordion';
 import { TableEntityComponent } from '../table-entity/table-entity.component';
 import { Entity, EntityField } from '../../interfaces/entity';
 import { SharedCommonModule } from '../../modules/shared-common/shared-common.module';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { EntityModalComponent } from '../entity-modal/entity-modal.component';
-import { StateService } from '../../services/state.service';
 
 @Component({
   selector: 'app-entity',
@@ -23,9 +22,9 @@ export class EntityComponent {
 
   @Input() entities: Entity[] = [];
 
-  _entity?: Entity;
 
-  _entities: Entity[] = [];
+  _entity: Entity = new Entity();
+  _entityFields: EntityField[] = [];
 
 
   ref: DynamicDialogRef | undefined;
@@ -47,12 +46,25 @@ export class EntityComponent {
         if (entityFields) {
             entity.entityFields.push(entityFields);
         }
+        this.ref = undefined;
       });
   }
 
   onRemove(entities: Entity[],index: number) {
     entities.splice(index, 1);
   }
-    
+
+
+  
+  onEditings(entityField: any){
+
+    this.ref = this.dialogService.open(EntityModalComponent, 
+      { header: 'Create Field',
+        width: '90vw',
+        modal:true,
+        maximizable: false,
+        data: entityField
+      });
+  }
 
 }

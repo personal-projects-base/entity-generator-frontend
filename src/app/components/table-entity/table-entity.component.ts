@@ -1,17 +1,15 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { TableModule } from 'primeng/table';
+import {  Component, EventEmitter, Input, Output} from '@angular/core';
 import { Entity, EntityField } from '../../interfaces/entity';
 import { SharedCommonModule } from '../../modules/shared-common/shared-common.module';
-import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { EntityModalComponent } from '../entity-modal/entity-modal.component';
+
 
 @Component({
   selector: 'app-table-entity',
   standalone: true,
   imports: [
-    TableModule,SharedCommonModule
+    SharedCommonModule
   ],
-  providers: [DialogService],
+  //providers: [DialogService],
   templateUrl: './table-entity.component.html',
   styleUrl: './table-entity.component.scss'
 })
@@ -20,18 +18,25 @@ export class TableEntityComponent{
   @Input() entityFields: EntityField[] = [];
   @Input() entity: Entity = new Entity();
 
-  ref: DynamicDialogRef | undefined;
+  @Output() dataEmitter: EventEmitter<EntityField> = new EventEmitter();
 
-  constructor(public readonly dialogService: DialogService){}
+  //ref: DynamicDialogRef | undefined;
+
+  constructor(
+    //public readonly dialogService: DialogService
+  ){
+
+  }
 
   onEditing(entityField: EntityField){
-    this.ref = this.dialogService.open(EntityModalComponent, 
-      { header: 'Create Field',
-        width: '90vw',
-        modal:true,
-        maximizable: false,
-        data: entityField
-      });
+    this.dataEmitter.emit(entityField);
+    // this.ref = this.dialogService.open(EntityModalComponent, 
+    //   { header: 'Create Field',
+    //     width: '90vw',
+    //     modal:true,
+    //     maximizable: false,
+    //     data: entityField
+    //   });
   }
 
   onDuplicate(entity: Entity, entityField: EntityField){

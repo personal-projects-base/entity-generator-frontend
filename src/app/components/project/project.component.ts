@@ -3,8 +3,7 @@ import { TabViewModule } from 'primeng/tabview';
 import { DropdownModule } from 'primeng/dropdown';
 import { EntityComponent } from "../entity/entity.component";
 import { Endpoint, Entity, EntityGenerator } from '../../interfaces/entity';
-import { DialogService, DynamicDialogModule, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { EntityModalComponent } from '../entity-modal/entity-modal.component';
+
 import { SharedCommonModule } from '../../modules/shared-common/shared-common.module';
 import { JsonViewerComponent } from "../json-viewer/json-viewer.component";
 import { EndpointsComponent } from "../endpoints/endpoints.component";
@@ -15,17 +14,14 @@ import { EndpointsComponent } from "../endpoints/endpoints.component";
   standalone: true,
   imports: [
     TabViewModule,
-    DropdownModule,
     EntityComponent,
-    DynamicDialogModule,
     SharedCommonModule,
     JsonViewerComponent,
-    EndpointsComponent,
     EndpointsComponent
 ],
   templateUrl: './project.component.html',
   styleUrl: './project.component.scss',
-  providers: [DialogService]
+
 })
 export class ProjectComponent {
 
@@ -37,16 +33,18 @@ export class ProjectComponent {
 
   public form: EntityGenerator = new EntityGenerator();
 
-  ref: DynamicDialogRef | undefined;
+  _entities: Entity[] = [];
+
 
   jsonViewer: string = "";
 
   language: any;
 
-  constructor(public readonly dialogService: DialogService){}
+  constructor(){}
 
   onAddEntity(){
     this.form.entities.push(new Entity());
+    //this._entities.push(new Entity());
   }
 
   onGenerate(): void {
