@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { AccordionModule } from 'primeng/accordion';
 import { SharedCommonModule } from '../../modules/shared-common/shared-common.module';
-import { Endpoint, Output } from '../../interfaces/entity';
+import { Endpoint, Output, Input as InputEnd } from '../../interfaces/entity';
 
 @Component({
   selector: 'app-endpoints',
@@ -30,7 +30,7 @@ export class EndpointsComponent {
   }
 
   onAddInput(endpoint: Endpoint) {
-    endpoint.metadata.input.push(new Input())
+    endpoint.metadata.input.push(new InputEnd())
   }
 
   onAddOutput(endpoint: Endpoint) {
