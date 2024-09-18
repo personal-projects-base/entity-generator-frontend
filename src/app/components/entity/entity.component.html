@@ -1,5 +1,17 @@
 <p-accordion>
-    <p-accordionTab  [header]="entity.entityName" *ngFor="let entity of entities">
+    <p-accordionTab   *ngFor="let entity of entities; let i = index">
+        <ng-template pTemplate="header">
+            <div class="head">
+                {{ entity.entityName }}
+                <button
+                type="button" 
+                pButton 
+                pRipple 
+                icon="pi pi-trash" 
+                (click)="onRemove(entities, i)">
+            </button>
+            </div>
+        </ng-template>
         <div class="formgrid grid">
             <div class="field col-12 md:col-4 c-margin">
                 <p-floatLabel>

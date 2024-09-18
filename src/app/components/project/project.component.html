@@ -27,11 +27,16 @@
           </div>
           <div class="title-entities">
             <h3>Entidades</h3>
-            <p-button (onClick)="onAddEntity()" label="Adicionar" />
+            <p-button (onClick)="onAddEntity()" label="Add Entity" />
           </div>
           <app-entity [entities]="form.entities"></app-entity>
-          <h4>Endpoints</h4>
-          <div class="buttons">
+          <hr>
+          <div class="title-entities">
+            <h3>Endpoints</h3>
+            <p-button (onClick)="onAddEntity()" label="Add Endpoint" />
+          </div>
+          <hr>
+          <div style="margin-top: 40px;" class="buttons">
             <p-button (onClick)="onGenerate()" label="Generate" />
           </div>
         </div>

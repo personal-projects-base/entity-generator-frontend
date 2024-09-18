@@ -48,4 +48,9 @@ export class EntityComponent {
       });
   }
 
+  onRemove(entities: Entity[],index: number) {
+    entities.splice(index, 1);
+  }
+    
+
 }

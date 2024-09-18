@@ -8,7 +8,7 @@ export class EntityGenerator {
   }
   
   export class Entity {
-    entityName: string  = ""
+    entityName: string  = "EntityName"
     tableName: string  = ""
     entityFields: EntityField[] = []
     classExtends?: string  = ""
@@ -21,7 +21,7 @@ export class EntityGenerator {
     fieldProperties: FieldProperties = new FieldProperties()
     metadata: Metadata = new Metadata()
     relationShips: RelationShips = new RelationShips()
-    list?: boolean
+    list: boolean = false
     frontendProperties: FrontendProperties = new FrontendProperties()
   }
   
@@ -47,13 +47,13 @@ export class EntityGenerator {
     httpMethod: string  = ""
     grouper: string  = ""
     metadata: Metadata2 = new Metadata2()
-    anonymous?: boolean
+    anonymous: boolean = false
   }
   
   export class Metadata2 {
     input: Input[] = []
     output: Output[] = []
-    anonymous?: boolean = false
+    anonymous: boolean = false
   }
   
   export class Input {
