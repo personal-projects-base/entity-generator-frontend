@@ -39,7 +39,7 @@ export class EntityGenerator {
   export class RelationShips {
     fetchType: string  = ""
     relationShip: string  = ""
-    bidirectional?: boolean = false
+    bidirectional: boolean = false
   }
   
   export class Endpoint {

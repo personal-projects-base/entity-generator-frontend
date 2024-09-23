@@ -49,6 +49,16 @@ export class ProjectComponent {
 
   onGenerate(): void {
     this.form.language = this.language?.code;
+
+    this.form.entities.forEach(e => [
+      e.entityFields.forEach(field => {
+        if(field.relationShips){
+          if(field.relationShips.fetchType === 'None'){
+            delete (field as any).relationShips;
+          }
+        }
+      })
+    ])
     this.jsonViewer = JSON.stringify(this.form,null, 2);
   }
 

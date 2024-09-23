@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { Entity, EntityField } from '../../interfaces/entity';
-import { InputTextModule } from 'primeng/inputtext';
-import { FormsModule } from '@angular/forms';
-import { ButtonModule } from 'primeng/button';
-import { FloatLabelModule } from 'primeng/floatlabel';
+import { EntityField } from '../../interfaces/entity';
 import { SharedCommonModule } from '../../modules/shared-common/shared-common.module';
 
 @Component({
@@ -28,6 +24,7 @@ export class EntityModalComponent implements OnInit {
   ngOnInit(): void {
     if(this.config.data){
       this.entityFields = this.config.data;
+
       this.fetch = this.fetchType.filter(e => e.code === this.entityFields.relationShips.fetchType)[0]
       this.relati = this.relation.filter(e => e.code === this.entityFields.relationShips.relationShip)[0]
       
@@ -53,8 +50,11 @@ export class EntityModalComponent implements OnInit {
   ];
 
   onSave() {
-    this.entityFields.relationShips.fetchType = this.fetch.code;
-    this.entityFields.relationShips.relationShip = this.relati.code;
+    if(this.entityFields.relationShips){
+      this.entityFields.relationShips.fetchType = this.fetch.code;
+      this.entityFields.relationShips.relationShip = this.relati.code;
+    }
+
     this.ref.close(this.entityFields);
   }
 
