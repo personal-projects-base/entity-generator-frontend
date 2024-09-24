@@ -38,7 +38,20 @@
           <app-endpoints [endpoints]="form.endpoints" ></app-endpoints>
           <hr>
           <div style="margin-top: 40px;" class="buttons">
+            <div style="margin-right: 10px;">
+              <p-fileUpload 
+              mode="basic"
+              name="file"
+              accept=".json" 
+              (onSelect)="onUpload($event)"
+              maxFileSize="1000000"
+              [auto]="true" 
+              chooseLabel="Loading properties" 
+              [customUpload]="true" />
+            </div>
+            
             <p-button (onClick)="onGenerate()" label="Generate" />
+            
           </div>
         </div>
     </p-tabPanel>

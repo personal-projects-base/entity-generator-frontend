@@ -8,6 +8,7 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DropdownModule } from 'primeng/dropdown';
 import { TableModule } from 'primeng/table';
+import { FileUploadModule } from 'primeng/fileupload';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { TableModule } from 'primeng/table';
     CheckboxModule,
     DropdownModule,
     TableModule,
-    DropdownModule
+    DropdownModule,
+    FileUploadModule
   ]
 })
 export class SharedCommonModule { }

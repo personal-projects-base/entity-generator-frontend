@@ -7,6 +7,9 @@ import { Endpoint, Entity, EntityGenerator } from '../../interfaces/entity';
 import { SharedCommonModule } from '../../modules/shared-common/shared-common.module';
 import { JsonViewerComponent } from "../json-viewer/json-viewer.component";
 import { EndpointsComponent } from "../endpoints/endpoints.component";
+import { FileUploadEvent } from 'primeng/fileupload';
+import { HttpClient, HttpHandler } from '@angular/common/http';
+
 
 
 @Component({
@@ -18,12 +21,13 @@ import { EndpointsComponent } from "../endpoints/endpoints.component";
     SharedCommonModule,
     JsonViewerComponent,
     EndpointsComponent
-],
+  ],
   templateUrl: './project.component.html',
   styleUrl: './project.component.scss',
 
 })
 export class ProjectComponent {
+
 
 
   public languages = [
@@ -65,4 +69,26 @@ export class ProjectComponent {
   onAddEndpoint() {
     this.form.endpoints.push(new Endpoint());
   }
+
+  onUpload(e: any) {
+    const file: File = e.files[0];
+    
+    if (file) {
+      const reader = new FileReader();
+      
+      reader.onload = (e: any) => {
+        try {
+          const json = JSON.parse(e.target.result);
+          if(json.mainPackage){
+            this.form = json;
+          }
+        } catch (error) {
+          console.error('Erro ao ler o JSON:', error);
+        }
+      };
+      
+      reader.readAsText(file);
+    }
+  }
+
 }
