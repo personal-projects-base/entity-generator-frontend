@@ -49,8 +49,8 @@ export class ProjectComponent {
 
   onGenerate(): void {
     this.form.language = this.language?.code;
-
-    this.form.entities.forEach(e => [
+    let obj = structuredClone(this.form);
+    obj.entities.forEach(e => [
       e.entityFields.forEach(field => {
         if(field.relationShips){
           if(field.relationShips.fetchType === 'None'){
@@ -59,7 +59,7 @@ export class ProjectComponent {
         }
       })
     ])
-    this.jsonViewer = JSON.stringify(this.form,null, 2);
+    this.jsonViewer = JSON.stringify(obj,null, 2);
   }
 
   onAddEndpoint() {
