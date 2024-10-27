@@ -1,0 +1,25 @@
+name: Deploy on Develop Push
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run SSH commands on server
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: ${{ DEPLOY.SERVER_IP }}
+          username: ${{ DEPLOY.SERVER_USER }}
+          key: ${{ DEPLOY.SSH_KEY }}
+          script: |
+            cd /home/server/services/frontend/entity-generator-frontend
+            docker compose build
+            docker compose up -d
