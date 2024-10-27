@@ -16,9 +16,9 @@ jobs:
       - name: Run SSH commands on server
         uses: appleboy/ssh-action@v0.1.4
         with:
-          host: ${{ DEPLOY.SERVER_IP }}
-          username: ${{ DEPLOY.SERVER_USER }}
-          key: ${{ DEPLOY.SSH_KEY }}
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_KEY }}
           script: |
             cd /home/server/services/frontend/entity-generator-frontend
             docker compose build
