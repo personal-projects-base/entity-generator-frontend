@@ -13,13 +13,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
       - name: Run SSH commands on server
-        uses: appleboy/ssh-action@v0.1.4
-        with:
-          host: ${{ secrets.SERVER_IP }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          script: |
-            cd /home/server/services/frontend/entity-generator-frontend
-            docker compose build
+        env:
+          SERVER_PASSWORD: ${{ secrets.SSH_KEY }}
+        run: |
+          sshpass -p "$SERVER_PASSWORD" ssh -o StrictHostKeyChecking=no {{ secrets.SERVER_USER }}@{{ secrets.SERVER_IP }} '
+            cd /home/server/services/frontend/entity-generator-frontend &&
+            docker compose build &&
             docker compose up -d
+          '
