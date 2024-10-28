@@ -5,14 +5,3 @@
 .title{
     margin-bottom: 20px;
 }
-:host::ng-deep {
-    .p-button-secondary {
-        background-color: #FF9E1B;
-    }
-    .p-button-secondary:hover {
-        background: #FF9E1B;
-    }
-    .p-tabview .p-tabview-panels{
-        height: 100%;
-    }
-}
