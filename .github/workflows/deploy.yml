@@ -20,6 +20,6 @@ jobs:
         run: |
           sshpass -p "${{ secrets.SSH_KEY }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} '
             cd /home/server/services/frontend/entity-generator-frontend &&
-            docker compose build &&
+            docker compose build --no-cache &&
             docker compose up -d
           '
