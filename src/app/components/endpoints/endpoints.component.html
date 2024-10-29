@@ -14,14 +14,15 @@
         </ng-template>
         <div class="formgrid grid">
             <div class="field col-12 md:col-4 c-margin">
-                <p-floatLabel>
+                <!-- <p-floatLabel>
                     <p-dropdown 
-                    [(ngModel)]="methodName"
+                    [(ngModel)]="endpoint.httpMethod"
                     [options]="methodNames"
                     optionLabel="name"
                     class="w-full"/>
                     <label for="username">HttpMethod</label>
-                </p-floatLabel>
+                </p-floatLabel> -->
+                <app-entity-dropdown (updateHttpMethod)="updateValueHttpMethod($event, endpoint)" [httpMethod]="endpoint.httpMethod"></app-entity-dropdown>
             </div>
             <div class="field col-12 md:col-4 c-margin">
                 <p-floatLabel>
