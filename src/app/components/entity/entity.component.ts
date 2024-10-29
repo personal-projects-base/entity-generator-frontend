@@ -54,6 +54,12 @@ export class EntityComponent {
     entities.splice(index, 1);
   }
 
+  onClone(entity: Entity){
+    var clone = structuredClone(entity);
+    clone.entityName += 'Clone';
+    this.entities.push(clone);
+  }
+
 
   
   onEditings(entityField: any){

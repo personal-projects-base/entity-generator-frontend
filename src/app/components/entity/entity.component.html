@@ -3,13 +3,25 @@
         <ng-template pTemplate="header">
             <div class="head">
                 {{ entity.entityName }}
-                <button
-                type="button" 
-                pButton 
-                pRipple 
-                icon="pi pi-trash" 
-                (click)="onRemove(entities, i)">
-            </button>
+                <div>
+                    <button
+                        type="button" 
+                        pButton 
+                        pRipple 
+                        icon="pi pi-clone" 
+                        (click)="onClone(entity)">
+                    </button>
+                    <button
+                        type="button" 
+                        pButton 
+                        pRipple
+                        style="margin-left: 10px;"
+                        icon="pi pi-trash" 
+                        (click)="onRemove(entities, i)">
+                    </button>
+                    
+                </div>
+                
             </div>
         </ng-template>
         <div class="formgrid grid">
