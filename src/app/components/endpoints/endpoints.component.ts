@@ -1,14 +1,16 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AccordionModule } from 'primeng/accordion';
 import { SharedCommonModule } from '../../modules/shared-common/shared-common.module';
 import { Endpoint, Output, Input as InputEnd } from '../../interfaces/entity';
+import { EntityDropdownComponent } from '../../shared/entity-dropdown/entity-dropdown.component';
 
 @Component({
   selector: 'app-endpoints',
   standalone: true,
   imports: [
     AccordionModule,
-    SharedCommonModule
+    SharedCommonModule,
+    EntityDropdownComponent
   ],
   templateUrl: './endpoints.component.html',
   styleUrl: './endpoints.component.scss'
@@ -25,6 +27,10 @@ export class EndpointsComponent {
   ]
 
 
+  onSetHttpMethod(value: any){
+    return this.methodNames.filter(e => e.name === value)[0];
+  }
+
   onRemove(endpoint: Endpoint[],index: number) {
     endpoint.splice(index, 1);
   }
@@ -39,6 +45,10 @@ export class EndpointsComponent {
 
   onRemoveParameter(obj: any[],index: number) {
     obj.splice(index,1);
+  }
+
+  updateValueHttpMethod(value: any, endpoint: Endpoint){
+    endpoint.httpMethod = value;
   }
     
 }

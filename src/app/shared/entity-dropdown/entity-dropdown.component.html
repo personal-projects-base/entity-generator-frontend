@@ -1,0 +1,9 @@
+<p-floatLabel>
+    <p-dropdown 
+    [(ngModel)]="methodName"
+    [options]="methodNames"
+    optionLabel="name"
+    (onChange)="onChange($event)"
+    class="w-full"/>
+    <label for="username">HttpMethod</label>
+</p-floatLabel>
