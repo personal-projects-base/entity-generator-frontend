@@ -81,6 +81,7 @@ export class ProjectComponent {
           const json = JSON.parse(e.target.result);
           if(json.mainPackage){
             this.form = json;
+            this.language = this.languages.filter(e => e.code = this.form.language)[0];
           }
         } catch (error) {
           console.error('Erro ao ler o JSON:', error);
