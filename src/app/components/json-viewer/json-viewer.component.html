@@ -1,1 +1,12 @@
-<pre><code [innerHTML]="jsonText"></code></pre>
+<div>
+    <button
+        type="button" 
+        pButton 
+        pRipple 
+        icon="pi pi-clone" 
+        (click)="onCopy()">
+    </button>
+    <pre>
+        <code [innerHTML]="jsonText"></code>
+    </pre>
+</div>

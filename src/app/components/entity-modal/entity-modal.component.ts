@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { EntityField } from '../../interfaces/entity';
+import { EntityField, RelationShips } from '../../interfaces/entity';
 import { SharedCommonModule } from '../../modules/shared-common/shared-common.module';
 
 @Component({
@@ -22,8 +22,14 @@ export class EntityModalComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
+
     if(this.config.data){
       this.entityFields = this.config.data;
+      if(!this.entityFields.relationShips){
+        this.entityFields.relationShips = new RelationShips();
+        this.fetch = this.fetchType[0];
+        this.relati = this.relation[0];
+      }
 
       this.fetch = this.fetchType.filter(e => e.code === this.entityFields.relationShips.fetchType)[0]
       this.relati = this.relation.filter(e => e.code === this.entityFields.relationShips.relationShip)[0]
