@@ -1,0 +1,63 @@
+<p-accordion>
+    <p-accordionTab   *ngFor="let enum of enums; let i = index">
+        <ng-template pTemplate="header">
+            <div class="head">
+                {{ enum.enumName }}
+                <div>
+                    <button
+                        type="button" 
+                        pButton 
+                        pRipple 
+                        icon="pi pi-clone" 
+                        (click)="onClone(enum)">
+                    </button>
+                    <button
+                        type="button" 
+                        pButton 
+                        pRipple
+                        style="margin-left: 10px;"
+                        icon="pi pi-trash" 
+                        (click)="onRemove(enums, i)">
+                    </button>
+                </div>
+            </div>
+        </ng-template>
+        <div class="formgrid grid">
+            <div class="field col-12 md:col-12 c-margin">
+                <p-floatLabel>
+                <input pInputText id="methodName" class="w-full" [(ngModel)]="enum.enumName" />
+                <label for="methodName">EnumName</label>
+                </p-floatLabel>
+            </div>
+        </div>
+        <div class="field col-12 md:col-12 c-margin buttons btnsp">
+            <h4>Values</h4>
+            <button
+                type="button" 
+                pButton 
+                pRipple 
+                icon="pi pi-plus" 
+                (click)="onAddEnum(enum)">
+            </button>
+        </div>
+        <div class="field col-12 md:col-12">
+            <div class="formgrid grid" *ngFor="let value of enum.values; let i = index; trackBy: trackByIndex">
+                <div class="field col-12 md:col-10 c-margin" >
+                    <p-floatLabel>
+                        <input pInputText id="valuess" class="w-full" [(ngModel)]="enum.values[i]" />
+                        <label for="valuess">Value</label>
+                    </p-floatLabel>
+                </div>
+                <div class="field col-12 md:col-2 c-margin" >
+                    <button
+                        type="button" 
+                        pButton 
+                        pRipple 
+                        label="Remove"
+                        (click)="onRemoveParameter(enum.values, i)">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </p-accordionTab>
+</p-accordion>

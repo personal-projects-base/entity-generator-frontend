@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { TabViewModule } from 'primeng/tabview';
 import { DropdownModule } from 'primeng/dropdown';
 import { EntityComponent } from "../entity/entity.component";
-import { Endpoint, Entity, EntityGenerator } from '../../interfaces/entity';
+import { Endpoint, Entity, EntityGenerator, Enums } from '../../interfaces/entity';
 
 import { SharedCommonModule } from '../../modules/shared-common/shared-common.module';
 import { JsonViewerComponent } from "../json-viewer/json-viewer.component";
 import { EndpointsComponent } from "../endpoints/endpoints.component";
 import { FileUploadEvent } from 'primeng/fileupload';
 import { HttpClient, HttpHandler } from '@angular/common/http';
+import { EnumerationsComponent } from "../enumerations/enumerations.component";
 
 
 
@@ -20,8 +21,10 @@ import { HttpClient, HttpHandler } from '@angular/common/http';
     EntityComponent,
     SharedCommonModule,
     JsonViewerComponent,
-    EndpointsComponent
-  ],
+    EndpointsComponent,
+    EnumerationsComponent,
+    EnumerationsComponent
+],
   templateUrl: './project.component.html',
   styleUrl: './project.component.scss',
 
@@ -48,7 +51,10 @@ export class ProjectComponent {
 
   onAddEntity(){
     this.form.entities.push(new Entity());
-    //this._entities.push(new Entity());
+  }
+
+  onAddEnum(){
+    this.form.enums.push(new Enums());
   }
 
   onGenerate(): void {
