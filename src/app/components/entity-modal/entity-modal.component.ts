@@ -29,11 +29,10 @@ export class EntityModalComponent implements OnInit {
         this.entityFields.relationShips = new RelationShips();
         this.fetch = this.fetchType[0];
         this.relati = this.relation[0];
+      } else {
+        this.fetch = this.fetchType.filter(e => e.code === this.entityFields.relationShips.fetchType)[0]
+        this.relati = this.relation.filter(e => e.code === this.entityFields.relationShips.relationShip)[0]
       }
-
-      this.fetch = this.fetchType.filter(e => e.code === this.entityFields.relationShips.fetchType)[0]
-      this.relati = this.relation.filter(e => e.code === this.entityFields.relationShips.relationShip)[0]
-      
     }else {
       this.fetch = this.fetchType[0];
       this.relati = this.relation[0];
