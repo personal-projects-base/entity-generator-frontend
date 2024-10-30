@@ -4,11 +4,17 @@ export class EntityGenerator {
     projectName: string = ""
     entities: Entity[] = []
     endpoints: Endpoint[] = []
+    enums: Enums[] = []
 
+  }
+
+  export class Enums {
+    enumName: string = "enumName";
+    values: string[] = [];
   }
   
   export class Entity {
-    entityName: string  = "EntityName"
+    entityName: string  = "entityName"
     tableName: string  = ""
     entityFields: EntityField[] = []
     classExtends?: string  = ""

@@ -22,11 +22,6 @@ export class EntityComponent {
 
   @Input() entities: Entity[] = [];
 
-
-  _entity: Entity = new Entity();
-  _entityFields: EntityField[] = [];
-
-
   ref: DynamicDialogRef | undefined;
 
   constructor(

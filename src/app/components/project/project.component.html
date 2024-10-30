@@ -32,6 +32,12 @@
           <app-entity [entities]="form.entities"></app-entity>
           <hr>
           <div class="title-entities">
+            <h3>Enumerations</h3>
+            <p-button (onClick)="onAddEnum()" label="Add Enum" />
+          </div>
+          <app-enumerations [enums]="form.enums" ></app-enumerations>
+          <hr>
+          <div class="title-entities">
             <h3>Endpoints</h3>
             <p-button (onClick)="onAddEndpoint()" label="Add Endpoint" />
           </div>
