@@ -57,7 +57,7 @@ export class ProjectComponent {
     obj.entities.forEach(e => [
       e.entityFields.forEach(field => {
         if(field.relationShips){
-          if(field.relationShips.fetchType === 'None'){
+          if(field.relationShips.fetchType === 'None' || field.relationShips.fetchType === ''){
             delete (field as any).relationShips;
           }
         }
