@@ -22,6 +22,14 @@
                 </div>
             </div>
         </ng-template>
+        <div class="formgrid grid">
+            <div class="field col-12 md:col-12 c-margin">
+                <p-floatLabel>
+                <input pInputText id="methodName" class="w-full" [(ngModel)]="enum.enumName" />
+                <label for="methodName">EnumName</label>
+                </p-floatLabel>
+            </div>
+        </div>
         <div class="field col-12 md:col-12 c-margin buttons btnsp">
             <h4>Values</h4>
             <button
@@ -29,15 +37,15 @@
                 pButton 
                 pRipple 
                 icon="pi pi-plus" 
-                (click)="onAddField(enum)">
+                (click)="onAddEnum(enum)">
             </button>
         </div>
         <div class="field col-12 md:col-12">
-            <div class="formgrid grid" *ngFor="let input of enum.values; let i = index">
-                <div class="field col-12 md:col-5 c-margin" >
+            <div class="formgrid grid" *ngFor="let value of enum.values; let i = index; trackBy: trackByIndex">
+                <div class="field col-12 md:col-10 c-margin" >
                     <p-floatLabel>
-                        <input pInputText id="value" class="w-full" [(ngModel)]="enum.values[i]" />
-                        <label for="value">Value</label>
+                        <input pInputText id="valuess" class="w-full" [(ngModel)]="enum.values[i]" />
+                        <label for="valuess">Value</label>
                     </p-floatLabel>
                 </div>
                 <div class="field col-12 md:col-2 c-margin" >

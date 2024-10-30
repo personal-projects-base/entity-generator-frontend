@@ -29,8 +29,8 @@ export class EnumerationsComponent {
   ){}
 
 
-  onAddField(entity: Enums){
-
+  onAddEnum(obj: Enums){
+    obj.values.push("");
   }
 
   onRemove(entities: Enums[],index: number) {
@@ -45,5 +45,9 @@ export class EnumerationsComponent {
 
   onRemoveParameter(values: string[],index: number) {
     values.splice(index,1);
+  }
+
+  trackByIndex(index: number, _: any): number {
+    return index;
   }
 }
