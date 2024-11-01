@@ -16,18 +16,20 @@ export class EntityGenerator {
   export class Entity {
     entityName: string  = "entityName"
     tableName: string  = ""
+    generateDefaultHandlers: boolean = false
+    handlerAbstract: boolean = false
     entityFields: EntityField[] = []
     classExtends?: string  = ""
-    generateDefaultHandlers: boolean = false
+
   }
   
   export class EntityField {
     comment: string  = ""
     fieldName: string  = ""
+    list: boolean = false
     fieldProperties: FieldProperties = new FieldProperties()
     metadata: Metadata = new Metadata()
     relationShips: RelationShips = new RelationShips()
-    list: boolean = false
     frontendProperties: FrontendProperties = new FrontendProperties()
   }
   
@@ -56,9 +58,10 @@ export class EntityGenerator {
   }
   
   export class Metadata2 {
+    anonymous: boolean = false
     input: Input[] = []
     output: Output[] = []
-    anonymous: boolean = false
+   
   }
   
   export class Input {

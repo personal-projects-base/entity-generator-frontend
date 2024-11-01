@@ -87,6 +87,11 @@ export class ProjectComponent {
           const json = JSON.parse(e.target.result);
           if(json.mainPackage){
             this.form = json;
+            this.form.entities.forEach(e => {
+              if(!e.handlerAbstract){
+                e.handlerAbstract = false;
+              }
+            });
             this.language = this.languages.filter(e => e.code = this.form.language)[0];
           }
         } catch (error) {
