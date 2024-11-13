@@ -52,6 +52,8 @@ export class EntityModalComponent implements OnInit {
     { name: 'None', code: 'None' },
     { name: 'OneToOne', code: 'OneToOne' },
     { name: 'OneToMany', code: 'OneToMany' },
+    { name: 'ManyToOne', code: 'ManyToOne' },
+    { name: 'ManyToMany', code: 'ManyToMany' }
   ];
 
   onSave() {
