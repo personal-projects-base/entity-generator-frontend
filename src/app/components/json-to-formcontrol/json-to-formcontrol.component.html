@@ -1,7 +1,10 @@
 <p-splitter [style]="{ height: '80vh' }" styleClass="mb-5">
     <ng-template pTemplate>
         <div style="height: 100%; width: 100%;">
-
+            <ngx-monaco-editor style="height: 100%;"
+            [(ngModel)]="input"
+            [options]="editorOptions"
+          ></ngx-monaco-editor>
         </div>
     </ng-template>
     <ng-template pTemplate>
