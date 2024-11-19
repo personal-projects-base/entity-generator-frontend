@@ -10,6 +10,7 @@ import { EndpointsComponent } from "../endpoints/endpoints.component";
 import { FileUploadEvent } from 'primeng/fileupload';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { EnumerationsComponent } from "../enumerations/enumerations.component";
+import { JsonToFormcontrolComponent } from "../json-to-formcontrol/json-to-formcontrol.component";
 
 
 
@@ -23,7 +24,8 @@ import { EnumerationsComponent } from "../enumerations/enumerations.component";
     JsonViewerComponent,
     EndpointsComponent,
     EnumerationsComponent,
-    EnumerationsComponent
+    EnumerationsComponent,
+    JsonToFormcontrolComponent
 ],
   templateUrl: './project.component.html',
   styleUrl: './project.component.scss',

@@ -47,6 +47,7 @@ export class EntityGenerator {
   export class RelationShips {
     fetchType: string  = ""
     relationShip: string  = ""
+    mappedBy: string  = ""
     bidirectional: boolean = false
   }
   
