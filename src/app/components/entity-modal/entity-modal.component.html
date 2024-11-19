@@ -95,12 +95,19 @@
         <label for="username">MappedBy</label>
         </p-floatLabel>
     </div>
-    <div class="field col-12 md:col-12 c-margin">
+    <div class="field col-12 md:col-6 c-margin">
         <p-checkbox 
         [(ngModel)]="entityFields.relationShips.bidirectional" 
         [binary]="true" 
         inputId="key" />
         <label style="margin-left: 5px;" for="key">Bidirectional</label>
+    </div>
+    <div class="field col-12 md:col-6 c-margin">
+        <p-checkbox 
+        [(ngModel)]="entityFields.relationShips.reference" 
+        [binary]="true" 
+        inputId="key" />
+        <label style="margin-left: 5px;" for="key">Reference</label>
     </div>
     <div class="field col-12 md:col-12 c-margin">
         <hr>
