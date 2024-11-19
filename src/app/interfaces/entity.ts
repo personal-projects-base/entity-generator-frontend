@@ -49,6 +49,7 @@ export class EntityGenerator {
     relationShip: string  = ""
     mappedBy: string  = ""
     bidirectional: boolean = false
+    reference: boolean = false
   }
   
   export class Endpoint {

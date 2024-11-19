@@ -5,3 +5,11 @@
 .title{
     margin-bottom: 20px;
 }
+.entity-generator{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .github{
+        margin-right: 16px;
+    }
+}
