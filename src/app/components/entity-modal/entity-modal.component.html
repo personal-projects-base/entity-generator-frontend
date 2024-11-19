@@ -69,7 +69,7 @@
     <div class="field col-12 md:col-12">
         <h3>Relationship</h3>
     </div>
-    <div class="field col-12 md:col-6 c-margin">
+    <div class="field col-12 md:col-4 c-margin">
         <p-floatLabel>
             <p-dropdown 
             [(ngModel)]="fetch"
@@ -79,7 +79,7 @@
             <label for="username">FetchType</label>
         </p-floatLabel>
     </div>
-    <div class="field col-12 md:col-6 c-margin">
+    <div class="field col-12 md:col-4 c-margin">
         <p-floatLabel>
             <p-dropdown 
             [(ngModel)]="relati"
@@ -87,6 +87,12 @@
             optionLabel="name"
             class="w-full" />
             <label for="username">Relationship</label>
+        </p-floatLabel>
+    </div>
+    <div class="field col-12 md:col-4 c-margin">
+        <p-floatLabel>
+        <input pInputText id="username" class="w-full" [(ngModel)]="entityFields.relationShips.mappedBy" />
+        <label for="username">MappedBy</label>
         </p-floatLabel>
     </div>
     <div class="field col-12 md:col-12 c-margin">
