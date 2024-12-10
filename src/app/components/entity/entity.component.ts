@@ -5,6 +5,7 @@ import { Entity, EntityField } from '../../interfaces/entity';
 import { SharedCommonModule } from '../../modules/shared-common/shared-common.module';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { EntityModalComponent } from '../entity-modal/entity-modal.component';
+import {Ripple} from "primeng/ripple";
 
 @Component({
   selector: 'app-entity',
@@ -13,6 +14,7 @@ import { EntityModalComponent } from '../entity-modal/entity-modal.component';
     AccordionModule,
     TableEntityComponent,
     SharedCommonModule,
+    Ripple,
   ],
   providers: [DialogService],
   templateUrl: './entity.component.html',
@@ -30,7 +32,7 @@ export class EntityComponent {
 
 
   onAddField(entity: Entity){
-    this.ref = this.dialogService.open(EntityModalComponent, 
+    this.ref = this.dialogService.open(EntityModalComponent,
       { header: 'Create Field',
         width: '90vw',
         modal:true,
@@ -56,10 +58,10 @@ export class EntityComponent {
   }
 
 
-  
+
   onEditings(entityField: any){
 
-    this.ref = this.dialogService.open(EntityModalComponent, 
+    this.ref = this.dialogService.open(EntityModalComponent,
       { header: 'Create Field',
         width: '90vw',
         modal:true,
