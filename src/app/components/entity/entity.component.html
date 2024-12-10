@@ -5,39 +5,37 @@
                 {{ entity.entityName }}
                 <div>
                     <button
-                        type="button" 
-                        pButton 
-                        pRipple 
-                        icon="pi pi-clone" 
+                        type="button"
+                        pButton
+                        pRipple
+                        icon="pi pi-clone"
                         (click)="onClone(entity)">
                     </button>
                     <button
-                        type="button" 
-                        pButton 
+                        type="button"
+                        pButton
                         pRipple
                         style="margin-left: 10px;"
-                        icon="pi pi-trash" 
+                        icon="pi pi-trash"
                         (click)="onRemove(entities, i)">
                     </button>
-                    
                 </div>
-                
             </div>
         </ng-template>
-        <div class="formgrid grid">
-            <div class="field col-12 md:col-4 c-margin">
+        <div class="c-margin formgrid grid">
+            <div class="c-margin field col-12 md:col-4 c-margin">
                 <p-floatLabel>
                 <input pInputText id="entityName" class="w-full" [(ngModel)]="entity.entityName" />
                 <label for="entityName">Entity name</label>
                 </p-floatLabel>
             </div>
-            <div class="field col-12 md:col-4 c-margin">
+            <div class="c-margin  field col-12 md:col-4 c-margin">
                 <p-floatLabel>
                 <input pInputText id="tableName" class="w-full" [(ngModel)]="entity.tableName" />
                 <label for="tableName">Table name</label>
                 </p-floatLabel>
             </div>
-            <div class="field col-12 md:col-4 c-margin">
+            <div class="c-margin field col-12 md:col-4 c-margin">
                 <p-floatLabel>
                     <input pInputText id="classExtends" class="w-full" [(ngModel)]="entity.classExtends" />
                     <label for="classExtends">Class extends</label>
@@ -46,28 +44,28 @@
         </div>
         <div class="formgrid grid">
             <div class="field col-12 md:col-6 c-margin">
-                <p-checkbox 
-                    [(ngModel)]="entity.generateDefaultHandlers" 
-                    [binary]="true" 
-                    inputId="generateDefaultHandlers" />
-                    <label style="margin-left: 5px;" for="generateDefaultHandlers">Generate Crud Default</label>
+                <p-checkbox
+                    [(ngModel)]="entity.generateDefaultHandlers"
+                    [binary]="true"
+                     />
+                    <label style="margin-left: 5px;">Generate Crud Default</label>
             </div>
             <div class="field col-12 md:col-6 c-margin">
-                <p-checkbox 
-                    [(ngModel)]="entity.handlerAbstract" 
-                    [binary]="true" 
-                    inputId="handlerAbstract"/>
-                    <label style="margin-left: 5px;" for="handlerAbstract">Override Handlers</label>
+                <p-checkbox
+                    [(ngModel)]="entity.handlerAbstract"
+                    [binary]="true"
+                    />
+                    <label style="margin-left: 5px;" >Override Handlers</label>
             </div>
         </div>
-        
+
         <div class="c-margin buttons">
             <p-button (onClick)="onAddField(entity)" label="Adicionar" />
         </div>
         <div class="c-margin">
             <app-table-entity
                 (dataEmitter)="onEditings($event)"
-                [entity]="entity" 
+                [entity]="entity"
                 [entityFields]="entity.entityFields">
             </app-table-entity>
         </div>

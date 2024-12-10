@@ -1,20 +1,20 @@
 <div style="margin-top: 20px;" class="formgrid grid c-margin">
     <div class="field col-12 md:col-6 c-margin">
         <p-floatLabel>
-        <input pInputText id="username" class="w-full" [(ngModel)]="entityFields.comment" />
-        <label for="username">Comment</label>
+        <input pInputText id="comment" class="w-full" [(ngModel)]="entityFields.comment" />
+        <label for="comment">Comment</label>
         </p-floatLabel>
     </div>
     <div class="field col-12 md:col-6 c-margin">
         <p-floatLabel>
-        <input pInputText id="username" class="w-full" [(ngModel)]="entityFields.fieldName" />
-        <label for="username">Field name</label>
+        <input pInputText id="fieldName" class="w-full" [(ngModel)]="entityFields.fieldName" />
+        <label for="fieldName">Field name</label>
         </p-floatLabel>
     </div>
     <div class="field col-12 md:col-12 c-margin">
-        <p-checkbox 
-        [(ngModel)]="entityFields.list" 
-        [binary]="true" 
+        <p-checkbox
+        [(ngModel)]="entityFields.list"
+        [binary]="true"
         inputId="binary" />
         <label style="margin-left: 5px;" for="binary">Is list</label>
     </div>
@@ -32,16 +32,16 @@
     </div>
     <div class="field col-12 md:col-6">
         <p-floatLabel>
-        <input pInputText id="username" class="w-full" [(ngModel)]="entityFields.fieldProperties.valueDefault" />
-        <label for="username">Default value</label>
+        <input pInputText id="valueDefault" class="w-full" [(ngModel)]="entityFields.fieldProperties.valueDefault" />
+        <label for="valueDefault">Default value</label>
         </p-floatLabel>
     </div>
     <div class="field col-12 md:col-12 c-margin">
-        <p-checkbox 
-        [(ngModel)]="entityFields.fieldProperties.required" 
-        [binary]="true" 
+        <p-checkbox
+        [(ngModel)]="entityFields.fieldProperties.required"
+        [binary]="true"
         inputId="required" />
-        <label style="margin-left: 5px;" for="required">Required</label>
+        <label style="margin-left: 5px;">Required</label>
     </div>
     <div class="field col-12 md:col-12 c-margin">
         <hr>
@@ -50,16 +50,16 @@
         <h3>Metadata</h3>
     </div>
     <div class="field col-12 md:col-6 c-margin">
-        <p-checkbox 
-        [(ngModel)]="entityFields.metadata.key" 
-        [binary]="true" 
+        <p-checkbox
+        [(ngModel)]="entityFields.metadata.key"
+        [binary]="true"
         inputId="key" />
         <label style="margin-left: 5px;" for="key">Primary Key</label>
     </div>
     <div class="field col-12 md:col-6 c-margin">
-        <p-checkbox 
-        [(ngModel)]="entityFields.metadata.nullable" 
-        [binary]="true" 
+        <p-checkbox
+        [(ngModel)]="entityFields.metadata.nullable"
+        [binary]="true"
         inputId="nullable" />
         <label style="margin-left: 5px;" for="nullable">Accept Null</label>
     </div>
@@ -71,7 +71,7 @@
     </div>
     <div class="field col-12 md:col-4 c-margin">
         <p-floatLabel>
-            <p-dropdown 
+            <p-dropdown
             [(ngModel)]="fetch"
             [options]="fetchType"
             optionLabel="name"
@@ -81,7 +81,7 @@
     </div>
     <div class="field col-12 md:col-4 c-margin">
         <p-floatLabel>
-            <p-dropdown 
+            <p-dropdown
             [(ngModel)]="relati"
             [options]="relation"
             optionLabel="name"
@@ -96,16 +96,16 @@
         </p-floatLabel>
     </div>
     <div class="field col-12 md:col-6 c-margin">
-        <p-checkbox 
-        [(ngModel)]="entityFields.relationShips.bidirectional" 
-        [binary]="true" 
+        <p-checkbox
+        [(ngModel)]="entityFields.relationShips.bidirectional"
+        [binary]="true"
         inputId="key" />
         <label style="margin-left: 5px;" for="key">Bidirectional</label>
     </div>
     <div class="field col-12 md:col-6 c-margin">
-        <p-checkbox 
-        [(ngModel)]="entityFields.relationShips.reference" 
-        [binary]="true" 
+        <p-checkbox
+        [(ngModel)]="entityFields.relationShips.reference"
+        [binary]="true"
         inputId="key" />
         <label style="margin-left: 5px;" for="key">Reference</label>
     </div>
@@ -146,16 +146,16 @@
         </p-floatLabel>
     </div>
     <div class="field col-12 md:col-6 c-margin">
-        <p-checkbox 
-        [(ngModel)]="entityFields.frontendProperties.enableFieldsFilter" 
-        [binary]="true" 
+        <p-checkbox
+        [(ngModel)]="entityFields.frontendProperties.enableFieldsFilter"
+        [binary]="true"
         inputId="key" />
         <label style="margin-left: 5px;" for="key">Enable filter</label>
     </div>
     <div class="field col-12 md:col-6 c-margin">
-        <p-checkbox 
-        [(ngModel)]="entityFields.frontendProperties.hidden" 
-        [binary]="true" 
+        <p-checkbox
+        [(ngModel)]="entityFields.frontendProperties.hidden"
+        [binary]="true"
         inputId="key" />
         <label style="margin-left: 5px;" for="key">Hidden</label>
     </div>

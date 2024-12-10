@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
 import { TabViewModule } from 'primeng/tabview';
-import { DropdownModule } from 'primeng/dropdown';
+import {DropdownChangeEvent, DropdownModule} from 'primeng/dropdown';
 import { EntityComponent } from "../entity/entity.component";
 import { Endpoint, Entity, EntityGenerator, Enums } from '../../interfaces/entity';
 
 import { SharedCommonModule } from '../../modules/shared-common/shared-common.module';
 import { JsonViewerComponent } from "../json-viewer/json-viewer.component";
 import { EndpointsComponent } from "../endpoints/endpoints.component";
-import { FileUploadEvent } from 'primeng/fileupload';
-import { HttpClient, HttpHandler } from '@angular/common/http';
 import { EnumerationsComponent } from "../enumerations/enumerations.component";
 import { JsonToFormcontrolComponent } from "../json-to-formcontrol/json-to-formcontrol.component";
 
@@ -33,8 +31,7 @@ import { JsonToFormcontrolComponent } from "../json-to-formcontrol/json-to-formc
 })
 export class ProjectComponent {
 
-
-
+  language: any;
   public languages = [
     { name: 'Java', code: 'JAVA' },
     { name: 'C#', code: 'DOTNET' }
@@ -43,11 +40,9 @@ export class ProjectComponent {
   public form: EntityGenerator = new EntityGenerator();
 
   _entities: Entity[] = [];
-
-
   jsonViewer: string = "";
 
-  language: any;
+
 
   constructor(){}
 
@@ -61,6 +56,8 @@ export class ProjectComponent {
 
   onGenerate(): void {
     this.form.language = this.language?.code;
+    console.log(this.form.language);
+    console.log(this.language?.code);
     let obj = structuredClone(this.form);
     obj.entities.forEach(e => [
       e.entityFields.forEach(field => {
@@ -80,10 +77,10 @@ export class ProjectComponent {
 
   onUpload(e: any) {
     const file: File = e.files[0];
-    
+
     if (file) {
       const reader = new FileReader();
-      
+
       reader.onload = (e: any) => {
         try {
           const json = JSON.parse(e.target.result);
@@ -100,9 +97,13 @@ export class ProjectComponent {
           console.error('Erro ao ler o JSON:', error);
         }
       };
-      
+
       reader.readAsText(file);
     }
   }
 
+  onChangeLanguage($event: DropdownChangeEvent) {
+    console.log(this.language?.code);
+    console.log($event);
+  }
 }
