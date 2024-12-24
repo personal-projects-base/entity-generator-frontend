@@ -1,22 +1,22 @@
 <p-accordion>
-    <p-accordionTab   *ngFor="let enum of enums; let i = index">
+    <p-accordionTab  iconPos="end" *ngFor="let enum of enums; let i = index">
         <ng-template pTemplate="header">
             <div class="head">
                 {{ enum.enumName }}
                 <div>
                     <button
-                        type="button" 
-                        pButton 
-                        pRipple 
-                        icon="pi pi-clone" 
+                        type="button"
+                        pButton
+                        pRipple
+                        icon="pi pi-clone"
                         (click)="onClone(enum)">
                     </button>
                     <button
-                        type="button" 
-                        pButton 
+                        type="button"
+                        pButton
                         pRipple
                         style="margin-left: 10px;"
-                        icon="pi pi-trash" 
+                        icon="pi pi-trash"
                         (click)="onRemove(enums, i)">
                     </button>
                 </div>
@@ -33,10 +33,10 @@
         <div class="field col-12 md:col-12 c-margin buttons btnsp">
             <h4>Values</h4>
             <button
-                type="button" 
-                pButton 
-                pRipple 
-                icon="pi pi-plus" 
+                type="button"
+                pButton
+                pRipple
+                icon="pi pi-plus"
                 (click)="onAddEnum(enum)">
             </button>
         </div>
@@ -50,9 +50,9 @@
                 </div>
                 <div class="field col-12 md:col-2 c-margin" >
                     <button
-                        type="button" 
-                        pButton 
-                        pRipple 
+                        type="button"
+                        pButton
+                        pRipple
                         label="Remove"
                         (click)="onRemoveParameter(enum.values, i)">
                     </button>

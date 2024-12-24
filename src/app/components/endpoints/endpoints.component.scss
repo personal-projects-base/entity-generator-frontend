@@ -4,3 +4,11 @@
     align-items: center;
     justify-content: space-between;
 }
+:host::ng-deep {
+  .p-accordion {
+    padding: 10px;
+  }
+  .p-accordion-toggle-icon {
+    order: 1;
+  }
+}
