@@ -65,6 +65,9 @@
     <p-tabPanel header="Json">
         <app-json-viewer [jsonText]="jsonViewer"></app-json-viewer>
     </p-tabPanel>
+  <p-tabPanel header="FormViewer">
+    <app-json-viewer [jsonText]="formViewer"></app-json-viewer>
+  </p-tabPanel>
     <p-tabPanel *ngIf="false" header="json-to-formgroup">
       <app-json-to-formcontrol></app-json-to-formcontrol>
     </p-tabPanel>

@@ -11,6 +11,13 @@ import { EnumerationsComponent } from "../enumerations/enumerations.component";
 import { JsonToFormcontrolComponent } from "../json-to-formcontrol/json-to-formcontrol.component";
 
 
+interface FieldData {
+  fieldName: string;
+  required: boolean;
+  hidden: boolean;
+  type: string;
+  fields: any[];
+}
 
 @Component({
   selector: 'app-project',
@@ -41,6 +48,7 @@ export class ProjectComponent {
 
   _entities: Entity[] = [];
   jsonViewer: string = "";
+  formViewer: string = "";
 
 
 
@@ -68,7 +76,60 @@ export class ProjectComponent {
         }
       })
     ])
+    this.onGenerateForm(obj);
     this.jsonViewer = JSON.stringify(obj,null, 2);
+  }
+
+  onGenerateForm(obj: EntityGenerator): void {
+    var types: string[] = [];
+    obj.entities.forEach(entity => {
+      types.push(entity.entityName);
+    });
+
+    var forms = this.onTransformJsonToPersonFields(types, obj.entities);
+    this.formViewer = JSON.stringify(forms,null, 4);
+
+  }
+
+  private onTransform(types: string[], entity: Entity, obj: Entity[]): any[] {
+    const personFields: any = [];
+    const entityName = entity.entityName;
+    entity.entityFields.forEach((field) => {
+      const fieldData: FieldData = {
+        fieldName: field.fieldName,
+        required: field.fieldProperties.required,
+        hidden: field.frontendProperties.hidden,
+        type: this.onGetFieldType(types, field.fieldProperties.fieldType),
+        fields: []
+      };
+
+      if (fieldData.type === 'object') {
+        const locEntity = obj.filter(e => e.entityName === field.fieldProperties.fieldType)[0];
+        locEntity.entityFields = locEntity.entityFields.filter(fi => fi.fieldProperties.fieldType !== entityName);
+        fieldData.fields = this.onTransform(types, locEntity, obj);
+      }
+
+      personFields.push(fieldData);
+    });
+
+    return personFields;
+  }
+
+  onTransformJsonToPersonFields(types: string[], obj: Entity[]) {
+    const personFields: any = [];
+    obj.forEach(entity => {
+      personFields.push({entityName: entity.entityName, fields: this.onTransform(types,entity,obj)});
+    });
+
+    return personFields;
+  }
+
+  onGetFieldType(types: string[], fieldType: string) {
+    var type = types.filter(e => e === fieldType);
+    if (type.length > 0) {
+      return 'object';
+    }
+    return 'string';
   }
 
   onAddEndpoint() {
@@ -106,4 +167,6 @@ export class ProjectComponent {
     console.log(this.language?.code);
     console.log($event);
   }
+
+
 }

@@ -4,6 +4,7 @@ import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 import { TableModule } from 'primeng/table';
 import {Button} from "primeng/button";
 import {SharedCommonModule} from "../../modules/shared-common/shared-common.module";
+import {types} from "../../shared/constants";
 
 @Component({
   selector: 'app-field-batch',
@@ -50,7 +51,7 @@ export class FieldBatchComponent {
     var fieldsPasted = pastedText.split('\n');
     fieldsPasted.forEach(field => {
       var f = field.split(';');
-      this.fields.push({name: f[0], type: f[1]});
+      this.fields.push({name: f[0], type: this.onGetTypeNameFromDbType(f[1])});
     })
   }
 
@@ -72,6 +73,13 @@ export class FieldBatchComponent {
     })
 
     this.ref.close(entityFields);
+  }
+
+  onGetTypeNameFromDbType(dbType: string) {
+    const match = types.find(mapping =>
+      mapping.typesReplace.includes(dbType.toLowerCase())
+    );
+    return match ? match.name : null;
   }
 
 
