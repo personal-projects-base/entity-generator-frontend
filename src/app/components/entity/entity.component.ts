@@ -1,4 +1,4 @@
-import {  ChangeDetectionStrategy, ChangeDetectorRef, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, Input} from '@angular/core';
 import { AccordionModule } from 'primeng/accordion';
 import { TableEntityComponent } from '../table-entity/table-entity.component';
 import { Entity, EntityField } from '../../interfaces/entity';
@@ -6,6 +6,7 @@ import { SharedCommonModule } from '../../modules/shared-common/shared-common.mo
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { EntityModalComponent } from '../entity-modal/entity-modal.component';
 import {Ripple} from "primeng/ripple";
+import {FieldBatchComponent} from "../field-batch/field-batch.component";
 
 @Component({
   selector: 'app-entity',
@@ -29,6 +30,24 @@ export class EntityComponent {
   constructor(
     public readonly dialogService: DialogService
   ){}
+
+
+  onAddFieldBatch(entity: Entity){
+    this.ref = this.dialogService.open(FieldBatchComponent,
+      { header: 'Add field batch',
+        width: '90vw',
+        modal:true,
+        maximizable: false
+      });
+
+    this.ref.onClose.subscribe((entityFields: EntityField[]) => {
+      if (entityFields) {
+        entity.entityFields = entity.entityFields.concat(entityFields);
+      }
+      this.ref = undefined;
+    });
+  }
+
 
 
   onAddField(entity: Entity){
