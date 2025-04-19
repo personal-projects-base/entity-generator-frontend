@@ -76,7 +76,8 @@ export class ProjectComponent {
         }
       })
     ])
-    this.onGenerateForm(obj);
+
+    this.onGenerateForm(structuredClone(obj));
     this.jsonViewer = JSON.stringify(obj,null, 2);
   }
 
