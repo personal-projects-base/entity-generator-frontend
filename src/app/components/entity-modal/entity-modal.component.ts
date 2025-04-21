@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { EntityField, RelationShips } from '../../interfaces/entity';
 import { SharedCommonModule } from '../../modules/shared-common/shared-common.module';
+import {DatabaseService} from "../../services/database/database.service";
 
 @Component({
   selector: 'app-entity-modal',
@@ -18,7 +19,8 @@ export class EntityModalComponent implements OnInit {
 
   constructor(
     public readonly ref: DynamicDialogRef,
-    public readonly config: DynamicDialogConfig
+    public readonly config: DynamicDialogConfig,
+    private readonly databaseService: DatabaseService
   ){}
 
   ngOnInit(): void {
@@ -63,8 +65,6 @@ export class EntityModalComponent implements OnInit {
     }
 
     this.ref.close(this.entityFields);
+    this.databaseService.onSaveDb.next();
   }
-
-
-  
 }

@@ -45,7 +45,7 @@
           <app-endpoints [endpoints]="form.endpoints" ></app-endpoints>
           <hr>
           <div style="margin-top: 40px;" class="buttons">
-            <div style="margin-right: 10px;">
+            <div>
               <p-fileUpload
               mode="basic"
               name="file"
@@ -58,7 +58,8 @@
             </div>
 
             <p-button (onClick)="onGenerate()" label="Generate" />
-
+            <p-button (onClick)="onGetStorage()" label="Get storage" />
+            <p-button (onClick)="onGet()" label="Restore" />
           </div>
         </div>
     </p-tabPanel>

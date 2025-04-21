@@ -9,6 +9,7 @@ import { JsonViewerComponent } from "../json-viewer/json-viewer.component";
 import { EndpointsComponent } from "../endpoints/endpoints.component";
 import { EnumerationsComponent } from "../enumerations/enumerations.component";
 import { JsonToFormcontrolComponent } from "../json-to-formcontrol/json-to-formcontrol.component";
+import {DatabaseService} from "../../services/database/database.service";
 
 
 interface FieldData {
@@ -46,13 +47,22 @@ export class ProjectComponent {
 
   public form: EntityGenerator = new EntityGenerator();
 
-  _entities: Entity[] = [];
   jsonViewer: string = "";
   formViewer: string = "";
 
+  constructor(private readonly databaseService: DatabaseService) {
+    this.onRegistrySaveDB();
+  }
 
-
-  constructor(){}
+  onRegistrySaveDB(){
+    this.databaseService.onSaveDb.subscribe({
+      next: data => {
+        this.databaseService.add(this.form).then(() => {
+          console.log('salvo em cache com sucesso');
+        });
+      },
+    })
+  }
 
   onAddEntity(){
     this.form.entities.push(new Entity());
@@ -74,6 +84,7 @@ export class ProjectComponent {
             delete (field as any).relationShips;
           }
         }
+        delete (field as any).frontendProperties;
       })
     ])
 
@@ -99,7 +110,8 @@ export class ProjectComponent {
       const fieldData: FieldData = {
         fieldName: field.fieldName,
         required: field.fieldProperties.required,
-        hidden: field.frontendProperties.hidden,
+        //hidden: field.frontendProperties.hidden,
+        hidden: false,
         type: this.onGetFieldType(types, field.fieldProperties.fieldType),
         fields: []
       };
@@ -169,5 +181,24 @@ export class ProjectComponent {
     console.log($event);
   }
 
+  onGetStorage() {
+    this.databaseService.getAll<EntityGenerator>().then(data => {
+      if(data.length > 0) {
+        alert("os seguintes objetos foram encotrados: " +data.map(e => e.mainPackage) + "\ndigite para restaurar");
+      }
+    })
+  }
 
+  onGet(){
+    if(this.form.mainPackage === ""){
+      alert("digite o nome do main package que deseja restaurar");
+    } else {
+      this.databaseService.getById<EntityGenerator>(this.form.mainPackage).then((data) => {
+        if(data){
+          this.form = data;
+        }
+      })
+    }
+
+  }
 }

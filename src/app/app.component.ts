@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ProjectComponent } from './components/project/project.component';
 import { CommonModule } from '@angular/common';
@@ -16,8 +16,12 @@ import { HttpClientModule } from '@angular/common/http';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'entity-generator-frontend';
+
+  ngOnInit(): void {
+  }
+
 
 
 }
