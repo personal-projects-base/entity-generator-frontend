@@ -196,6 +196,7 @@ export class ProjectComponent {
       this.databaseService.getById<EntityGenerator>(this.form.mainPackage).then((data) => {
         if(data){
           this.form = data;
+          alert('restaurado com sucesso!')
         }
       })
     }
