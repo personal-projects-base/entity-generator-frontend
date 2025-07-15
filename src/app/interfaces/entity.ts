@@ -18,6 +18,7 @@ export class EntityGenerator {
     tableName: string  = ""
     generateDefaultHandlers: boolean = false
     handlerAbstract: boolean = false
+    onlyDTO: boolean = false
     entityFields: EntityField[] = []
     classExtends?: string  = ""
 

@@ -185,6 +185,8 @@ export class ProjectComponent {
     this.databaseService.getAll<EntityGenerator>().then(data => {
       if(data.length > 0) {
         alert("os seguintes objetos foram encotrados: " +data.map(e => e.mainPackage) + "\ndigite para restaurar");
+      } else {
+        alert("nenhum projeto foi encontrado");
       }
     })
   }

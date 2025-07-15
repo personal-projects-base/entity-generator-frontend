@@ -43,19 +43,23 @@
             </div>
         </div>
         <div class="formgrid grid">
-            <div class="field col-12 md:col-6 c-margin">
+            <div class="field col-12 md:col-4 c-margin">
                 <p-checkbox
                     [(ngModel)]="entity.generateDefaultHandlers"
-                    [binary]="true"
-                     />
+                    [binary]="true"/>
                     <label style="margin-left: 5px;">Generate Crud Default</label>
             </div>
-            <div class="field col-12 md:col-6 c-margin">
+            <div class="field col-12 md:col-4 c-margin">
                 <p-checkbox
                     [(ngModel)]="entity.handlerAbstract"
-                    [binary]="true"
-                    />
+                    [binary]="true"/>
                     <label style="margin-left: 5px;" >Override Handlers</label>
+            </div>
+            <div class="field col-12 md:col-4 c-margin">
+                <p-checkbox
+                  [(ngModel)]="entity.onlyDTO"
+                  [binary]="false"/>
+                <label style="margin-left: 5px;" >Only DTO</label>
             </div>
         </div>
 
